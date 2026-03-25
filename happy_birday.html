@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday DAVY</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+        text-align: center;
+        color: white;
+    }
+
+    h1 {
+        margin-top: 80px;
+        font-size: 60px;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from { text-shadow: 0 0 10px white; }
+        to { text-shadow: 0 0 30px #ff00de; }
+    }
+
+    p {
+        font-size: 24px;
+        width: 60%;
+        margin: auto;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 15px 25px;
+        font-size: 20px;
+        border: none;
+        border-radius: 10px;
+        background: #ff4081;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #e91e63;
+    }
+
+    /* Balloons */
+    .balloon {
+        position: absolute;
+        bottom: -100px;
+        width: 50px;
+        height: 70px;
+        background: red;
+        border-radius: 50%;
+        animation: float 10s infinite;
+    }
+
+    @keyframes float {
+        from { transform: translateY(0); }
+        to { transform: translateY(-120vh); }
+    }
+
+    /* Confetti */
+    .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: yellow;
+        top: 0;
+        animation: fall 5s infinite;
+    }
+
+    @keyframes fall {
+        from { transform: translateY(0); }
+        to { transform: translateY(100vh); }
+    }
+
+</style>
+</head>
+<body>
+
+<h1>🎉 Happy Birthday DAVY 🎂</h1>
+
+<p id="message">
+Click the button to see your birthday message 💌
+</p>
+
+<button onclick="showMessage()">Click Here</button>
+
+<script>
+function showMessage() {
+    document.getElementById("message").innerHTML =
+    "Dear DAVY, Happy Birthday! 🎂 I wish you happiness, good health, success in your study and life. May your smile always be bright and your dreams come true. Enjoy your special day! 💖";
+}
+
+/* Create balloons */
+for(let i=0;i<10;i++){
+    let balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.style.left = Math.random()*100 + "vw";
+    balloon.style.background = 
+        ["red","blue","yellow","green","purple"][Math.floor(Math.random()*5)];
+    balloon.style.animationDuration = (5 + Math.random()*5) + "s";
+    document.body.appendChild(balloon);
+}
+
+/* Create confetti */
+for(let i=0;i<50;i++){
+    let confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random()*100 + "vw";
+    confetti.style.background = 
+        ["red","blue","yellow","green","purple","pink"][Math.floor(Math.random()*6)];
+    confetti.style.animationDuration = (3 + Math.random()*3) + "s";
+    document.body.appendChild(confetti);
+}
+</script>
+
+</body>
+</html>
